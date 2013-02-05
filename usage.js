@@ -2,6 +2,9 @@
  * Based on ExtJS 4.1.1a source from examples (http://docs.sencha.com/ext-js/4-1/extjs-build/examples/grid/array-grid.html)
  * © 2006-2012 Sencha Inc.
  */
+/*
+ * Modified by Siterra Ltd. in 2013 to make a RowToolbar example
+ */
  
 // Define Company entity
 // Null out built in convert functions for performance *because the raw data is known to be valid*
