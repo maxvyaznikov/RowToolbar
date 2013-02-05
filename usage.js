@@ -67,19 +67,21 @@ Ext.onReady(function() {
         features: [{
             ftype: 'rowtoolbar',
             items: [
-                '->', {
+                '->',{
                     xtype: 'button',
-                    text: 'Confirm',
-                    handler: clicked_on_fn
-                }, {
-                    xtype: 'button',
-                    text: 'Refund money',
+                    text: 'Refund money'.bold(),
+                    iconCls: 'x-tbar-loading',
                     handler: clicked_on_fn,
                     isDisabledForRecord: function(item, record) {
                         return record.get('price') < 30.0;
                     }
-                }, {
-                    text: 'Send...',
+                },{
+                    xtype: 'button',
+                    text: 'Play in stocks'.bold(),
+                    iconCls: 'x-tbar-page-next',
+                    handler: clicked_on_fn
+                },{
+                    text: 'Send request'.bold(),
                     hiddenItemsSavePosition: true,
                     isVisibleForRecord: function(item, record) {
                         return record.get('change') > 0.5;
@@ -91,7 +93,7 @@ Ext.onReady(function() {
                         text: 'Send delivery boy...',
                         handler: clicked_on_fn
                     }]
-                }
+                },'->'
             ]
         },{
             ftype: 'rowwrap'
