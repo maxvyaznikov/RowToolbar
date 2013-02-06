@@ -20,6 +20,13 @@ Ext.define('Ext.ux.grid.features.RowToolbar', {
     alias: 'feature.rowtoolbar',
     
     rowToolbarCls: 'app-grid-feature-rowtoolbar',
+
+    /* @param renderTimeout (int)
+     * Timeout for delay before render items. Required, because we have no events to call
+     * our render after data loads and grid rendered. It can be edit, then computer is too 
+     * slow to render so fast.
+     */
+    renderTimeout: 1,
     
     toolbar: {},
     
@@ -136,10 +143,9 @@ Ext.define('Ext.ux.grid.features.RowToolbar', {
 
     getMetaRowTplFragments: function() {
         // render toolbar after some time
-        Ext.defer(this.renderItems, 50, this);
+        Ext.defer(this.renderItems, this.renderTimeout, this);
         
         return {
-            embedFullWidth: this.embedFullWidth,
             embedColSpan: this.embedColSpan
         };
     }
